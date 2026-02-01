@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sign Up</title>
+<link rel="Icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+.form-box {
+animation: pixelScramble 1s ease-out forwards;
+}
+
+
+.form-box button {
+width: 100%;
+padding: 12px;
+background: #238636;
+border: none;
+color: white;
+font-size: 16px;
+border-radius: 6px;
+cursor: pointer;
+transition: background 0.2s;
+}
+
+
+.form-box button:hover {
+background: #2ea043;
+}
+
+
+@keyframes pixelScramble {
+0% { opacity: 0; filter: contrast(0) blur(8px) saturate(0); transform: scale(1.2) rotate(5deg); }
+50% { opacity: 0.6; filter: contrast(2) blur(4px) saturate(1.5); transform: scale(0.95) rotate(-3deg); }
+100% { opacity: 1; filter: contrast(1) blur(0) saturate(1); transform: scale(1) rotate(0deg); }
+}
+</style>
+</head>
+<body class="auth-body33">
+<div class="auth-container form-box">
+<h2>Create Account</h2>
+<input type="text" id="newUser" placeholder="New Username" />
+<input type="password" id="newPass" placeholder="New Password" />
+<button onclick="signup()">Sign Up</button>
+<p>Already have an account? <a href="login.html">Login</a></p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

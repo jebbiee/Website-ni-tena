@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="Icon" type="image/png" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekiro Shadow Dies Twice – RedmanGaming</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background:url("BlurredBG.jpg");
+            color: #c7d5e0;
+        }
+
+        .container {
+            display: flex;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        .cover {
+            width: 65%;
+            border-radius: 8px;
+        }
+
+        .cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px black;
+        }
+
+        .details {
+            width: 35%;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .description {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-home {
+            background: #3b6aa0;
+        }
+
+        .btn-cart {
+            background: #5c7e10;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Thumbnail strip */
+        .thumbnail-strip {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .thumbnail-strip img {
+            width: 150px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .thumbnail-strip img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SIDE: Main Cover Image -->
+        <div class="cover">
+            <img id="mainImage" src="IMG/Header 1.jpg" alt="Game Cover">
+            
+            <!-- Thumbnail strip (optional) -->
+            <div class="thumbnail-strip">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Sekiro/Sekiro1.jpg">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Sekiro/Sekiro2.jpg">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Sekiro/Sekiro3.jpg">
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Description -->
+        <div class="details">
+            <h1>Sekiro Shadow Dies</h1>
+
+            <p class="description">
+                Game of the Year - The Game Awards 2019 Best Action Game of 2019 - IGN 
+                Carve your own clever path to vengeance in the award winning adventure from developer FromSoftware, 
+                creators of Bloodborne and the Dark Souls series. Take Revenge. Restore Your Honor. Kill Ingeniously.  
+                <br><br>
+                This Game of the Year Edition now includes bonus content*:
+
+- Reflection and Gauntlet of Strength - new boss challenge modes
+- Remnants - leave messages and recordings of your actions that other players can view and rate
+- 3 unlockable cosmetic skins
+
+Game of the Year - The Game Awards 2019
+Best Action Game of 2019 - IGN
+Over 50 awards and nominations
+
+Carve your own clever path to vengeance in the critically acclaimed adventure from developer FromSoftware, creators of the Dark Souls series.
+
+In Sekiro™: Shadows Die Twice you are the 'one-armed wolf', a disgraced and disfigured warrior rescued from the brink of death. Bound to protect a young lord who is the descendant of an ancient bloodline, you become the target of many vicious enemies, including the dangerous Ashina clan. When the young lord is captured, nothing will stop you on a perilous quest to regain your honor, not even death itself.
+
+Explore late 1500s Sengoku Japan, a brutal period of constant life and death conflict, as you come face to face with larger than life foes in a dark and twisted world. Unleash an arsenal of deadly prosthetic tools and powerful ninja abilities while you blend stealth, vertical traversal, and visceral head to head combat in a bloody confrontation.
+
+Take Revenge. Restore Your Honor. Kill Ingeniously.
+
+*Download required.
+
+Internet connection required for asynchronous Multiplayer.
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-home" href="MainPage.html">⬅ Back to Home</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function changeImage(src) {
+            document.getElementById("mainImage").src = src;
+        }
+    </script>
+
+</body>
+</html>

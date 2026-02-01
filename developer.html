@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the Developer - Jan Bhrixx Tena</title>
+  <link rel="Icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="developer.css">
+
+  <style>
+    /* Popup Background */
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    /* Popup Box */
+    .popup-box {
+      background: #8b0000; /* Dark red */
+      color: white;
+      padding: 55px;
+      width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px black;
+      text-align: left;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    /* Close Button */
+    .close-btn {
+      background: black;
+      
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      float: right;
+      margin-top: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="dev-header">
+    <h1>👨‍💻 About the Developer</h1>
+  </header>
+
+  <!-- Main Section -->
+  <main class="dev-container">
+    <div class="dev-card">
+      <img src="IMG/psych.jpg" alt="Photo of Jan Bhrixx Tena" class="dev-photo">
+
+      <h2>Jan Bhrixx Tena</h2>
+      <p class="subtext">📍 Burgos, Sablayan, Occidental Mindoro</p>
+      <p class="subtext">🎓 Studies <br> <strong>Bachelor of Science in Information Technology</strong><br>at <br> <strong>Occidental Mindoro State College</strong></p>
+
+      <hr>
+
+      <p class="bio">
+        Hi! I'm <strong>Jan Bhrixx</strong>, an aspiring student web developer with a passion for coding, technology, and design. 
+        I love building creative and functional websites that help people connect and explore the digital world.
+      </p>
+
+      <div class="socials">
+        <button id="openPopup" class="btn">📧 Email Me</button>
+        <a href="MainPage.html" class="btn">🏠 Back to Main Site</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <h3>📩 Contact Information</h3> <hr>
+      <p><strong>Email:</strong> Jayrette321@gmail.com</p>
+      <br><p><strong>Facebook:</strong> Facebook.com/redarthurdead</p>
+      <br><p><strong>Cell No.:</strong> +639773346139</p>
+
+      <button class="close-btn" id="closePopup">Close</button>
+    </div>
+  </div>
+
+  <!-- Popup Script -->
+  <script>
+    let popup = document.getElementById("popup");
+    let openBtn = document.getElementById("openPopup");
+    let closeBtn = document.getElementById("closePopup");
+
+    openBtn.onclick = () => popup.style.display = "flex";
+    closeBtn.onclick = () => popup.style.display = "none";
+
+    // Close when clicking outside the popup box
+    window.onclick = (e) => {
+      if (e.target === popup) {
+        popup.style.display = "none";
+      }
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Jan Bhrixx Tena — All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

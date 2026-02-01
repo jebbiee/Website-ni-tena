@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Red Dead Redemption 2 - Store</title>
+<link rel="Icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+.store-hero{height:320px;background:url('IMG/header 3.png') center/cover no-repeat}
+.store-container{max-width:1200px;margin:20px auto;padding:20px;color:#c7d5e0}
+.store-grid{display:grid;grid-template-columns:1fr 340px;gap:24px}
+.screenshots{display:flex;gap:12px;flex-wrap:wrap}
+.screenshots img{width:calc((100% - 24px)/3);height:160px;object-fit:cover;border-radius:8px}
+.buy-box{background:#1b2838;padding:18px;border-radius:10px;border:2px solid #66c0f4}
+#cart{position:fixed;top:100px;right:20px;width:260px;z-index:9999}
+@media(max-width:900px){.store-grid{grid-template-columns:1fr}.screenshots img{width:48%}}
+</style>
+</head>
+<body>
+<header class="navbar"><h1 class="logo"></h1><nav><ul><li><a href="MainPage.html">Home</a></li></ul></nav></header>
+<div class="store-hero"></div>
+<div class="store-container">
+  <div class="store-grid">
+    <div>
+      <h2>Red Dead Redemption 2</h2>
+      <p class="sub">Rockstar Games • Open World • Western</p>
+      <div class="description">
+        <h3>About this game</h3>
+        <p>An epic tale of life in America at the dawn of the modern age — follow Arthur Morgan and the Van der Linde gang.</p>
+      </div>
+      <div class="screenshots">
+        <img src="GamesStorePages/Red dead redemption/Red dead redemption1.png" alt="ss1">
+        <img src="GamesStorePages/Red dead redemption//Red dead redemption2.png" alt="ss2">
+        <img src="GamesStorePages/Red dead redemption/Red dead redemption3.jpeg" alt="ss3">
+      </div>
+      <div class="features">
+        <h3>Features</h3>
+        <ul>
+          <li>Immersive story-driven experience</li>
+          <li>Stunning open world</li>
+          <li>Deep NPC interactions</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="buy-box">
+      <h3>Red Dead Redemption 2</h3>
+      <p class="price">₱799.00</p>
+      <button class="btn-add" onclick="addToCart('Red Dead Redemption 2',799)">Add to cart</button>
+      <div style="margin-top:12px"><p>Total in cart: ₱<span id="cartTotal">0</span></p><ul id="cartItems"></ul><button id="checkoutBtn" onclick="checkout()">Checkout</button></div>
+    </aside>
+  </div>
+</div>
+<script src="cart.js"></script>
+</body>
+</html>

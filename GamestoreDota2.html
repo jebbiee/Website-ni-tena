@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="Icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dota 2 – RedmanGaming</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background:url("BlurredBG.jpg");
+            color: #c7d5e0;
+        }
+
+        .container {
+            display: flex;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        .cover {
+            width: 65%;
+            border-radius: 8px;
+        }
+
+        .cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px black;
+        }
+
+        .details {
+            width: 35%;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .description {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-home {
+            background: #3b6aa0;
+        }
+
+        .btn-cart {
+            background: #5c7e10;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Thumbnail strip */
+        .thumbnail-strip {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .thumbnail-strip img {
+            width: 150px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .thumbnail-strip img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SIDE: Main Cover Image -->
+        <div class="cover">
+            <img id="mainImage" src="IMG/F Header 1.jpg" alt="Game Cover">
+            
+            <!-- Thumbnail strip (optional) -->
+            <div class="thumbnail-strip">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Dota2/D1.jpg">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Dota2/D2.jpg">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Dota2/D3.jpg">
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Description -->
+        <div class="details">
+            <h1>Dota 2</h1>
+
+            <p class="description">
+                Every day, millions of players worldwide enter battle as one of over a hundred Dota heroes. And no matter if it's their 
+                10th hour of play or 1,000th, there's always something new to discover. With regular updates that ensure a constant 
+                evolution of gameplay, features, and heroes, Dota 2 has taken on a life of its own.  
+                <br><br>
+                The most-played game on Steam. <hr>
+                Every day, millions of players worldwide enter battle as one of over a hundred Dota heroes. And no matter if it's their 
+                10th hour of play or 1,000th, there's always something new to discover. With regular updates that ensure a constant 
+                evolution of gameplay, features, and heroes, Dota 2 has truly taken on a life of its own.
+                <br>
+                One Battlefield. Infinite Possibilities. <hr> 
+                When it comes to diversity of heroes, abilities, and powerful items, Dota boasts an endless array—no two games are the same. Any hero can fill multiple roles, and there's an abundance of items to help meet the needs of each game. Dota doesn't provide limitations on how to play, it empowers you to express your own style.
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-home" href="MainPage.html">⬅ Back to Home</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function changeImage(src) {
+            document.getElementById("mainImage").src = src;
+        }
+    </script>
+
+</body>
+</html>

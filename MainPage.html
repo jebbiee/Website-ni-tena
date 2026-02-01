@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="Icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Cart & Receipt Styles */
+    #cart h3 {
+      margin-top: 0;
+      color: #66c0f4;
+    }
+
+    #cartItems li button {
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 2px 5px;
+      box-shadow: 1px 1px 3px black;
+    }
+
+    #checkoutBtn {
+      width: 100%;
+      padding: 10px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px black;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    #checkoutBtn:hover {
+      background: darkred;
+    }
+
+    /* Modal / Invoice */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.75);
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      z-index: 9999;
+    }
+
+    .invoice-box {
+      background: #1b2838;
+      padding: 25px;
+      border-radius: 15px;
+      width: 420px;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(0,0,0,0.8);
+      border: 1px solid #2a475e;
+      text-align: center;
+    }
+
+    .invoice-box h2 {
+      margin-bottom: 15px;
+      color: #66c0f4;
+    }
+
+    .section {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .section ul {
+      margin-left: 15px;
+    }
+
+    .totals p {
+      margin: 3px 0;
+      font-size: 15px;
+    }
+
+    .grand-total {
+      font-size: 18px;
+      font-weight: bold;
+      color: #66c0f4;
+      margin-top: 8px;
+    }
+
+    .game-key {
+      margin-top: 10px;
+      background: #000;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #66c0f4;
+      font-family: monospace;
+      font-size: 16px;
+    }
+
+    .closeBtn {
+      width: 100%;
+      padding: 10px;
+      background: #66c0f4;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .closeBtn:hover {
+      background: #4a9fcc;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Professional Invoice Modal -->
+<div id="receiptModal" class="modal">
+  <div class="invoice-box">
+      <h2>🧾 Purchase Receipt</h2>
+
+      <div class="section">
+          <p><strong>Platform:</strong> <span id="receiptPlatform"></span></p>
+      </div>
+
+      <div class="section">
+          <p><strong>Items Purchased:</strong></p>
+          <ul id="receiptItems"></ul>
+      </div>
+
+      <div class="section totals">
+          <p>Subtotal: ₱<span id="receiptSubtotal"></span></p>
+          <p>VAT (12%): ₱<span id="receiptVAT"></span></p>
+          <p class="grand-total">Grand Total: ₱<span id="receiptTotal"></span></p>
+      </div>
+
+      <div class="section">
+          <p><strong>Generated Game Key:</strong></p>
+          <div id="receiptKey" class="game-key"></div>
+          <p>Payment Method: <span id="receiptPaymentMethod"></span></p>
+          <p>Payment ID: <span id="receiptPaymentMasked"></span></p>
+      </div>
+
+      <button class="closeBtn" onclick="closeReceipt()">Close</button>
+  </div>
+</div>
+
+<!-- Payment Method Modal -->
+<div id="paymentModal" class="modal">
+  <div class="payment-box" style="background:#1b2838; padding:25px; border-radius:15px; width:400px; color:white; text-align:center; box-shadow:0 0 25px rgba(0,0,0,0.8);">
+    <h2 style="color:#66c0f4; margin-bottom:15px;">💳 Select Payment Method</h2>
+
+    <div class="payment-options" style="display:flex; flex-direction:column; gap:15px; margin-bottom:20px;">
+      
+      <div class="method" onclick="choosePayment('gcash')" style="cursor:pointer; display:flex; align-items:center; gap:10px; background:#2a475e; padding:10px; border-radius:8px; transition:0.3s;">
+        <img src="gcash.png" alt="GCash" style="width:100px; height: 70px;">
+        <span>GCash</span>
+      </div>
+
+      <div class="method" onclick="choosePayment('credit')" style="cursor:pointer; display:flex; align-items:center; gap:10px; background:#2a475e; padding:10px; border-radius:8px; transition:0.3s;">
+        <img src="card.jpg" alt="Credit Card" style="width:100px; height: 70px;">
+        <span>Credit / Debit Card</span>
+      </div>
+
+      <div class="method" onclick="choosePayment('paypal')" style="cursor:pointer; display:flex; align-items:center; gap:10px; background:#2a475e; padding:10px; border-radius:8px; transition:0.3s;">
+        <img src="paypal.jpg" alt="PayPal" style="width:100px; height: 70px;">
+        <span>PayPal</span>
+      </div>
+
+      <div class="method" onclick="choosePayment('shopee')" style="cursor:pointer; display:flex; align-items:center; gap:10px; background:#2a475e; padding:10px; border-radius:8px; transition:0.3s;">
+        <img src="spay.png" alt="ShopeePay" style="width:100px; height: 70px;">
+        <span>ShopeePay</span>
+      </div>
+
+    </div>
+
+    <!-- Dynamic Payment Info Section -->
+    <div id="paymentFields" style="margin-bottom:20px;"></div>
+
+    <button id="payBtn" onclick="processPayment()" style="width:100%; padding:12px; background:#66c0f4; color:black; border:none; border-radius:10px; font-weight:bold; font-size:16px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.5); transition:0.3s;">
+      Pay Now
+    </button>
+  </div>
+</div>
+
+<!-- Navigation Bar -->
+<header class="navbar">
+  <h1 class="logo"></h1>
+  <nav>
+    <ul>
+      <li><a href="developer.html">About</a></li>
+      <li><a href="#featured">Home</a></li>
+      <li><a href="BlackF.html">Black Friday</a></li>
+      <li><a href="TopG.html">Top Games</a></li>
+      <li><a href="F2P.html">Free To Play</a></li>
+      <li><a href="LandingPage.html">Log Out</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Featured Section -->
+<section id="featured" class="hero">
+  <div class="hero-text">
+    <h2>Epic Deals. Endless Games.</h2>
+    <p>Discover new worlds and exclusive offers this season!</p>
+    <a href="#sales" class="btn">Shop Now</a>
+  </div>
+</section>
+
+<!-- Games Sections -->
+<section id="sales" class="games-section">
+  <h2>🔥 Black Friday Mega Sale 🔥</h2>
+  <div class="game-grid">
+    <div class="game-card">
+      <a href="GamestorePageSekiro.html"><img src="IMG/header 1.jpg" alt="Sekiro Shadows Die Twice"></a>
+      <h3>Sekiro Shadows Die Twice</h3>
+      <p><span class="discount">-50%</span> ₱1,805.00</p>
+      <button class="btn-add" onclick="addToCart('Sekiro Shadows Die Twice',1805)">Add to Cart</button>
+    </div>
+    <div class="game-card">
+      <a href="GamestorePageGTA.html"><img src="IMG/header 2.jpg" alt="GTA V"></a>
+      <h3>GTA V</h3>
+      <p><span class="discount">-70%</span> ₱300.00</p>
+      <button class="btn-add" onclick="addToCart('GTA V',300)">Add to Cart</button>
+    </div>
+    <div class="game-card">
+      <a href="GamestorePageRDR2.html"><img src="IMG/header 3.jpg" alt="RDR2"></a>
+      <h3>Red Dead Redemption 2</h3>
+      <p><span class="discount">-60%</span> ₱799.00</p>
+      <button class="btn-add" onclick="addToCart('Red Dead Redemption 2',799)">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<section id="top" class="games-section">
+  <h2>🎮 Top Rated Games 🎮</h2>
+  <div class="game-grid">
+    <div class="game-card">
+      <a href="GamestorePageHogwarts.html"><img src="IMG/N Header 1.jpg" alt="Hogwarts Legacy"></a>
+      <h3>Hogwarts Legacy</h3>
+      <p>₱2,799.00</p>
+      <button class="btn-add" onclick="addToCart('Hogwarts Legacy',2799)">Add to Cart</button>
+    </div>
+    <div class="game-card">
+      <a href="GamestorePageARk.html"><img src="IMG/N Header 2.jpg" alt="Destiny 2"></a>
+      <h3>Ark Survival Ascended</h3>
+      <p>₱2,560.00</p>
+      <button class="btn-add" onclick="addToCart('Ark Survival Ascended',2560)">Add to Cart</button>
+    </div>
+    <div class="game-card">
+      <a href="GamestoreER.html"><img src="IMG/N Header 3.jpg" alt="Elden Ring"></a>
+      <h3>Elden Ring</h3>
+      <p>₱2,999.00</p>
+      <button class="btn-add" onclick="addToCart('Elden Ring',2999)">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<section id="Free" class="games-section">
+  <h2>✅ Free To Play Games ✅</h2>
+  <div class="game-grid">
+    <div class="game-card">
+      <a href="GamestoreDota2.html"><img src="IMG/F Header 1.jpg" alt="Dota 2"></a>
+      <h3>Dota 2</h3>
+      <p>Free to Play</p>
+      <button class="btn-add" onclick="addToCart('Dota 2',0.00)">Add to Cart</button>
+    </div>
+    <div class="game-card">
+      <a href="GamestoreDestiny.html"><img src="IMG/F Header 3.jpg" alt="Destiny 2"></a>
+      <h3>Destiny 2</h3>
+      <p>Free to Play</p>
+      <button class="btn-add" onclick="addToCart('Destiny 2',0.00)">Add to Cart</button>
+    </div>
+    <div class="game-card">
+      <a href="GamestoreApex.html"><img src="IMG/F Header 2.jpg" alt="Apex Legends"></a>
+      <h3>Apex Legends</h3>
+      <p>Free to Play</p>
+      <button class="btn-add" onclick="addToCart('Apex Legends',0.00)">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 RedManGaming. Inspired by Steam. All rights reserved.</p>
+</footer>
+
+<!-- Cart -->
+<div id="cart">
+  <h3>Cart</h3>
+  <ul id="cartItems"></ul>
+  <p>Total: ₱<span id="cartTotal">0</span></p>
+  <button id="checkoutBtn" onclick="checkout()">Checkout</button>
+</div>
+
+<!-- Link to JS -->
+<script src="cart.js"></script>
+</body>
+</html>

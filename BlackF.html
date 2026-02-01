@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Icon" type="image/png" href="favicon.png">
+    <title>Black Friday Sale! – RedmanGaming</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background:url("BlurredBG.jpg");
+            color: #c7d5e0;
+        }
+
+        .container {
+            display: flex;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        .cover {
+            width: 65%;
+            border-radius: 8px;
+        }
+
+        .cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px black;
+        }
+
+        .details {
+            width: 35%;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .description {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-home {
+            background: #3b6aa0;
+        }
+
+        .btn-cart {
+            background: #5c7e10;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Thumbnail strip */
+        .thumbnail-strip {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .thumbnail-strip img {
+            width: 150px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .thumbnail-strip img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SIDE: Main Cover Image -->
+        <div class="cover">
+            <img id="mainImage" src="Pages/f2p.jpg" alt="Game Cover">
+            
+            <!-- Thumbnail strip (optional) -->
+            <div class="thumbnail-strip">
+                <img onclick="changeImage(this.src)" src="IMG/Header 1.jpg">
+                <img onclick="changeImage(this.src)" src="IMG/GTA.jpg">
+                <img onclick="changeImage(this.src)" src="IMG/Header 3.jpg">
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Description -->
+        <div class="details">
+            <h1>Black Friday Sale  of 2025!</h1>
+
+            <p class="description">
+               Get ready for the biggest gaming deals of the year! Black Friday 2025 brings an exclusive lineup of massive discounts,
+                limited-time bundles, and special offers across hundreds of top-tier titles. Whether you’re looking to expand your library 
+                with blockbuster AAA games, dive into critically acclaimed indies, or grab DLCs and expansions you’ve been waiting for, 
+                this is the perfect moment to power up your collection.
+                
+                <br><br>
+                Discover jaw-dropping price drops, flash sales updated throughout the event, and seasonal promotions that deliver unbeatable value. 
+                From action-packed shooters and open-world adventures to strategy epics and multiplayer favorites, every genre is packed with must-play 
+                titles at their lowest prices ever. Don’t miss out—these deals are only available for a short time. Explore the Black Friday 2025 sale, 
+                unlock huge savings, and level up your gaming experience like never before.
+                
+                <br><br>
+                Back to Main Menu to buy games!!
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-home" href="MainPage.html">⬅ Back to Home</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function changeImage(src) {
+            document.getElementById("mainImage").src = src;
+        }
+    </script>
+
+</body>
+</html>

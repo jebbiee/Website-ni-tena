@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="Icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destiny 2 – RedmanGaming</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background:url("BlurredBG.jpg");
+            color: #c7d5e0;
+        }
+
+        .container {
+            display: flex;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        .cover {
+            width: 65%;
+            border-radius: 8px;
+        }
+
+        .cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px black;
+        }
+
+        .details {
+            width: 35%;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .description {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-home {
+            background: #3b6aa0;
+        }
+
+        .btn-cart {
+            background: #5c7e10;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Thumbnail strip */
+        .thumbnail-strip {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .thumbnail-strip img {
+            width: 150px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .thumbnail-strip img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SIDE: Main Cover Image -->
+        <div class="cover">
+            <img id="mainImage" src="IMG/F Header 3.jpg" alt="Game Cover">
+            
+            <!-- Thumbnail strip (optional) -->
+            <div class="thumbnail-strip">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Destiny 2/Destiny1.jpg">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Destiny 2/Destiny2.jpeg">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Destiny 2/Destiny3.jpg">
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Description -->
+        <div class="details">
+            <h1>Destiny 2</h1>
+
+            <p class="description">
+                Destiny 2 is an action MMO with a single evolving world that you and your friends can join anytime, anywhere, absolutely free.  
+                <br><br>
+                Dive into the world of Destiny 2 to explore the mysteries of the solar system and experience responsive first-person shooter combat. Unlock powerful elemental abilities and collect unique gear to customize your Guardian's look and playstyle. Enjoy Destiny 2s cinematic story, challenging co-op missions, and a variety of PvP modes alone or with friends. Download for free today and write your legend in the stars.
+                <br><br>
+                An Immersive Story <hr>
+                You are a Guardian, defender of the Last City of humanity in a solar system under siege by infamous villains. Look to the stars and stand against the darkness. Your legend begins now.
+                <br><br>
+                Guardian Classes <hr>
+                Choose from the armored Titan, mystic Warlock, or swift Hunter.
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-home" href="MainPage.html">⬅ Back to Home</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function changeImage(src) {
+            document.getElementById("mainImage").src = src;
+        }
+    </script>
+
+</body>
+</html>

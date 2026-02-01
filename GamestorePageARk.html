@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="Icon" type="image/png" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ark Survival Evolved – RedmanGaming</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background:url("BlurredBG.jpg");
+            color: #c7d5e0;
+        }
+
+        .container {
+            display: flex;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        .cover {
+            width: 65%;
+            border-radius: 8px;
+        }
+
+        .cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px black;
+        }
+
+        .details {
+            width: 35%;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .description {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-home {
+            background: #3b6aa0;
+        }
+
+        .btn-cart {
+            background: #5c7e10;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Thumbnail strip */
+        .thumbnail-strip {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .thumbnail-strip img {
+            width: 150px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .thumbnail-strip img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SIDE: Main Cover Image -->
+        <div class="cover">
+            <img id="mainImage" src="IMG/ArkBG.jpeg" alt="Game Cover">
+            
+            <!-- Thumbnail strip (optional) -->
+            <div class="thumbnail-strip">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Ark/Ark1.jpg">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Ark/Ark2.jpg">
+                <img onclick="changeImage(this.src)" src="GamesStorePages/Ark/Arkk3.jpg">
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Description -->
+        <div class="details">
+            <h1>Ark Survival Ascended</h1>
+
+            <p class="description">
+                ARK is reimagined from the ground-up into the next-generation of video game technology with Unreal Engine 5! Form a tribe, 
+                tame & breed hundreds of unique dinosaurs and primeval creatures, explore, craft, build, and fight your way to the top of the 
+                food-chain. Your new world awaits!  
+                <br><br>
+                Respawn into a new dinosaur survival experience beyond your wildest dreams… as ARK is reimagined from the ground-up 
+                into the next-generation of videogame technology with Unreal Engine 5! You awake on a mysterious island, your senses 
+                overwhelmed by the blinding sunlight and brilliant colors bouncing off every surface around you, the azure waters of a 
+                verdant Island lapping at your bare feet. A deep roar echoes from the misty jungle, jolting you into action, and you stand 
+                up not afraid, but intrigued. Are you ready to form a tribe, tame and breed hundreds of species of dinosaurs and other 
+                primeval creatures, explore, craft, build, and fight your way to the top of the food-chain? Your new world awaits… 
+                step through the looking-glass and join it!
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-home" href="MainPage.html">⬅ Back to Home</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function changeImage(src) {
+            document.getElementById("mainImage").src = src;
+        }
+    </script>
+
+</body>
+</html>
